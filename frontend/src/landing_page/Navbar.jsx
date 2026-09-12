@@ -16,7 +16,7 @@ function Navbar() {
     >
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
-          <img src="assets/logo.svg" alt="Logo" style={{ width: "25%" }} />
+          <img src="assets/tradexlogo.png" alt="Logo" style={{ width: "25%" }} />
         </Link>
 
         <button
