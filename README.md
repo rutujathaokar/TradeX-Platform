@@ -1,106 +1,229 @@
-# TradeX Platform
+# TradeX – Stock Trading Platform
 
-A full-stack stock trading platform with a marketing website and a live trading dashboard, built with React and Node.js, and deployed as three independent services on free hosting.
-
-**Live demo:**
-- 🖥️ Dashboard: [stock-trading-platform-lime.vercel.app](https://stock-trading-platform-lime.vercel.app)
-- 🌐 Landing page: [stock-trading-platform-frontend.vercel.app](https://stock-trading-platform-frontend.vercel.app)
-- ⚙️ Backend API: [stock-trading-platform-y5pc.onrender.com](https://stock-trading-platform-y5pc.onrender.com)
-
-> Note: the backend is on Render's free tier, so it sleeps after 15 minutes of inactivity. The first request after that can take 30–50 seconds to respond — please be patient on first load.
+**TradeX** is a full-stack stock trading web application built using **React, Node.js, Express.js, and MongoDB**. It provides a responsive landing website along with an interactive trading dashboard for viewing portfolio information, monitoring stocks, and placing Buy/Sell orders.
 
 ---
 
-## What this is
+## 🚀 Live Demo
 
-This project has two parts, modeled on the UI patterns of real Indian stock brokerage platforms:
+🌐 **Landing Website:** https://tradex-frontend-o0ox.onrender.com
 
-1. **The marketing website** — Home, Products, Pricing, About, and Support pages
-2. **The trading dashboard** — Holdings, Positions, Orders, Funds, Watchlist, and live charts, with working Buy/Sell order windows
+📊 **Trading Dashboard:** https://tradex-dashboard-ub5n.onrender.com
 
-It's a full-stack architecture project built for learning and portfolio purposes — not a real trading system, and it isn't affiliated with or endorsed by any brokerage.
+⚙️ **Backend API:** https://tradex-backend-hgv4.onrender.com
 
-## Architecture
+The **landing website** acts as the main entry point to the application. Users can click **Try the Dashboard** to access the deployed trading dashboard.
 
-The project is split into three independently deployed apps:
+> **Deployment Note:** The backend is hosted on Render's free tier. After a period of inactivity, the backend may go to sleep. The first request after inactivity may therefore take some additional time while the server starts.
 
-```
-Dashboard (React, Vercel)  →  Backend API (Express, Render)  →  MongoDB Atlas
-Landing page (React, Vercel)  — standalone, no backend calls
-```
+---
 
-- The **dashboard** is the only app that talks to the backend — it fetches holdings/positions and posts new orders.
-- The **landing page** is fully static and doesn't call the API.
-- The **backend** is the only app that talks to the database.
+## 📌 About the Project
 
-## Tech stack
+TradeX is designed to provide a **stock-market style web experience** while demonstrating the development of a complete full-stack application.
 
-| Layer | Tech |
-|---|---|
-| Landing page | React 19, Vite, React Router, Bootstrap |
-| Dashboard | React 19, Vite, MUI, Chart.js, Axios |
-| Backend | Node.js, Express 5, Mongoose |
-| Database | MongoDB Atlas |
-| Hosting | Vercel (frontend + dashboard), Render (backend) |
+The project consists of two main user-facing parts:
 
-## Features
+### 🌐 Landing Website
 
-- Holdings table with live P&L calculation per stock, pulled from MongoDB
-- Positions table with product type, quantity, and day change
-- Buy and Sell order windows that submit orders to the backend
-- Order history saved to the database
-- Fully responsive marketing site with Home, Products, Pricing, About, and Support pages
+The landing website introduces the platform and provides the following sections:
 
-## Known limitations
+- **Home**
+- **About**
+- **Products**
+- **Pricing**
+- **Support**
 
-Being upfront about what this project doesn't do (yet):
+It also provides navigation to the trading dashboard through the **Try the Dashboard** option.
 
-- No authentication — holdings/positions/orders are global, not per-user
-- Placing a Buy/Sell order is saved to the database but doesn't currently update the Holdings/Positions numbers
-- No input validation on the API routes
-- No automated tests
+### 📊 Trading Dashboard
 
-These are natural next steps if extended further.
+The trading dashboard provides an interactive interface for viewing and managing stock-related information.
 
-## Running it locally
+It includes:
 
-Each app runs independently and needs its own terminal.
+- **Holdings**
+- **Positions**
+- **Orders**
+- **Funds**
+- **Watchlist**
+- **Stock Charts**
+- **Buy Orders**
+- **Sell Orders**
 
-**Backend**
-```bash
-cd backend
-npm install
-# create a .env file with:
-# MONGO_URL=your_mongodb_atlas_connection_string
-npm run dev
-```
-Runs on `http://localhost:3002`
+The dashboard communicates with the backend API to retrieve and store trading-related data.
 
-**Dashboard**
-```bash
-cd dashboard
-npm install
-# create a .env file with:
-# VITE_API_URL=http://localhost:3002
-npm run dev
-```
+---
 
-**Landing page**
-```bash
-cd frontend
-npm install
-npm run dev
-```
+## 🏗️ How the Application Works
 
-## Project structure
+The application is divided into separate frontend, dashboard, and backend services.
 
-```
-stock-trading-platform/
-├── backend/       # Express API + MongoDB models
-├── dashboard/      # Trading dashboard (React)
-└── frontend/       # Marketing/landing site (React)
-```
+```text
+Landing Website
+      │
+      │  Try the Dashboard
+      ▼
+Trading Dashboard
+      │
+      │  REST API Requests
+      ▼
+Backend API
+      │
+      │  Database Operations
+      ▼
+MongoDB Atlas
+Architecture Components
 
-## Author
+Landing Website
+Handles the main website interface, navigation, and informational pages.
 
-Built by [Nupur Thakkar](https://github.com/nupurthakkar17)
+Trading Dashboard
+Provides the stock trading interface and communicates with the backend API.
+
+Backend API
+Processes API requests and performs database operations.
+
+MongoDB Atlas
+Stores and retrieves trading-related application data.
+
+🛠️ Technologies Used
+Frontend Website
+React
+Vite
+React Router
+Bootstrap
+Trading Dashboard
+React
+Vite
+Material UI (MUI)
+Chart.js
+Axios
+Backend
+Node.js
+Express.js
+Mongoose
+Database
+MongoDB Atlas
+Deployment
+Render
+✨ Main Features
+📈 Portfolio Information
+
+The dashboard displays stock holdings along with profit and loss information based on the available portfolio data.
+
+📋 Positions
+
+Users can view position-related details such as quantity, product type, and daily changes.
+
+🛒 Buy & Sell Orders
+
+The dashboard provides separate interfaces for placing Buy and Sell orders.
+
+🧾 Order Management
+
+Orders submitted through the dashboard are sent to the backend API and stored in the database.
+
+👀 Watchlist
+
+Users can view and keep track of selected stocks through the watchlist section.
+
+📊 Stock Charts
+
+The dashboard includes charts that provide a visual representation of stock-related information.
+
+💰 Funds
+
+A dedicated funds section allows users to view available funds and related account information.
+
+📱 Responsive Interface
+
+The landing website provides a responsive interface designed to work across different screen sizes.
+
+🔄 Application Workflow
+The user opens the TradeX landing website.
+The landing page provides information about the platform and its features.
+The user clicks Try the Dashboard.
+The deployed Trading Dashboard opens.
+The dashboard sends requests to the Backend API.
+The backend processes the requested operation.
+MongoDB Atlas stores or retrieves the required data.
+The backend sends the response back to the dashboard.
+The dashboard displays the resulting information to the user.
+📂 Project Structure
+TradeX-Platform/
+│
+├── backend/
+│   ├── model/
+│   ├── schemas/
+│   ├── index.js
+│   ├── package.json
+│   └── package-lock.json
+│
+├── dashboard/
+│   ├── public/
+│   ├── src/
+│   ├── index.html
+│   ├── package.json
+│   └── package-lock.json
+│
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   ├── index.html
+│   ├── package.json
+│   └── package-lock.json
+│
+├── .gitignore
+└── README.md
+⚠️ Current Scope & Limitations
+
+TradeX is currently an educational and portfolio project and is not intended to function as a production-level stock brokerage platform.
+
+The current implementation has the following limitations:
+
+User authentication and individual user accounts are not implemented.
+Portfolio data is not separated between different users.
+Buy/Sell orders are stored in the database, but placing an order does not currently automatically update the displayed Holdings and Positions.
+API input validation can be improved.
+Automated testing has not yet been implemented.
+The application does not use real brokerage services for executing actual stock trades.
+🔮 Future Enhancements
+
+The project can be extended with the following features:
+
+User registration and login
+JWT-based authentication
+User-specific portfolios
+Improved API validation
+Automatic Holdings and Positions updates
+Real-time stock market data
+Detailed transaction history
+Portfolio performance reports
+Automated frontend and backend testing
+Improved API security and error handling
+Integration with real financial market APIs
+🎯 Project Purpose
+
+The main purpose of TradeX is to demonstrate practical full-stack web development by integrating:
+
+Modern React-based interfaces
+REST API communication
+Backend development using Node.js and Express.js
+Database management with MongoDB
+Stock trading dashboard concepts
+Deployment of multiple application services
+
+The project provides practical experience in developing and deploying a complete web application where multiple components communicate with each other.
+
+👩‍💻 Developer
+Rutuja Thaokar
+
+GitHub:
+https://github.com/rutujathaokar
+
+📄 Disclaimer
+
+TradeX is an educational/project implementation created for demonstrating full-stack web development concepts.
+
+It is not a real stock brokerage service and does not execute actual financial transactions. This project should not be used as a source for real investment or financial decisions.
