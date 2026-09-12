@@ -1,4 +1,4 @@
-# Stock Trading Platform
+# TradeX Platform
 
 A full-stack stock trading platform with a marketing website and a live trading dashboard, built with React and Node.js, and deployed as three independent services on free hosting.
 
